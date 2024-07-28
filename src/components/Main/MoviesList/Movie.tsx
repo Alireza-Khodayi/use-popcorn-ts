@@ -2,10 +2,11 @@ import { IMovie } from "../../../@Types/Movie";
 
 interface IProps {
   movie: IMovie;
+  onSelectMovie: (id: string) => void;
 }
-function Movie({ movie }: IProps) {
+function Movie({ movie, onSelectMovie }: IProps) {
   return (
-    <li key={movie.imdbID}>
+    <li onClick={() => onSelectMovie(movie.imdbID)}>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <h3>{movie.Title}</h3>
       <div>

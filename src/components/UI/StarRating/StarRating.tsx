@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Star from "./Star";
 import "./stars.css";
+
 interface IProps {
   maxRating?: number;
   color?: string;

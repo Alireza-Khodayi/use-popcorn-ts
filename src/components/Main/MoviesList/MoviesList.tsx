@@ -1,13 +1,14 @@
 import { IMovie } from "../../../@Types/Movie";
 import Movie from "./Movie";
 interface IProps {
-  movies: IMovie[];
+  movies?: IMovie[];
+  onSelectMovie: (id: string) => void;
 }
-function MoviesList({ movies }: IProps) {
+function MoviesList({ movies, onSelectMovie }: IProps) {
   return (
-    <ul className="list">
+    <ul className="list list-movies">
       {movies?.map((movie) => (
-        <Movie movie={movie} />
+        <Movie key={movie.imdbID} movie={movie} onSelectMovie={onSelectMovie} />
       ))}
     </ul>
   );
