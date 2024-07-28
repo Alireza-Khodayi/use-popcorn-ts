@@ -1,4 +1,4 @@
-import { IMovie } from "../../../@Types/Movie";
+import { IMovie } from '../../../@Types/Movie';
 
 interface IProps {
   movie: IMovie;

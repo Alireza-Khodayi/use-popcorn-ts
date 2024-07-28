@@ -3,7 +3,7 @@ interface IProps {
 }
 function ErrorMessage({ message }: IProps) {
   return (
-    <p className="error">
+    <p className='error'>
       <span>⛔</span>
       {message}
     </p>

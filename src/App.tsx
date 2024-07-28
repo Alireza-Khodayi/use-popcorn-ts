@@ -1,45 +1,44 @@
-import { useState } from "react";
-import { Main } from "./components/Main";
-import { Logo, Navbar, NumberOfResults, SearchBar } from "./components/Navbar";
-import { MoviesList } from "./components/Main/MoviesList";
-import { Box } from "./components/UI/Box";
+import { useState } from 'react';
+import { Main } from './components/Main';
+import { Logo, Navbar, NumberOfResults, SearchBar } from './components/Navbar';
+import { MoviesList } from './components/Main/MoviesList';
+import { Box } from './components/UI/Box';
 import {
   WatchedMoviesList,
   WatchedSummery,
-} from "./components/Main/WatchedMovies";
-import Loading from "./components/UI/Loading/Loading";
-import ErrorMessage from "./components/UI/Error/ErrorMessage";
-import MovieDetails from "./components/Main/MovieDetails/MovieDetails";
-import { IWatchedMovie } from "./@Types/WatchedMovie";
-import { useMovies } from "./hooks/useMovies";
-import { useLocalStorageState } from "./hooks/useLocalStorageState";
+} from './components/Main/WatchedMovies';
+import Loading from './components/UI/Loading/Loading';
+import ErrorMessage from './components/UI/Error/ErrorMessage';
+import MovieDetails from './components/Main/MovieDetails/MovieDetails';
+import { IWatchedMovie } from './@Types/WatchedMovie';
+import { useMovies } from './hooks/useMovies';
+import { useLocalStorageState } from './hooks/useLocalStorageState';
 
 function App() {
-  const [query, setQuery] = useState<string>("");
+  const [query, setQuery] = useState<string>('');
   const [selectedId, setSelectedId] = useState<null | string>(null);
   const { movies, isLoading, error } = useMovies(query);
 
   const [watched, setWatched] = useLocalStorageState<IWatchedMovie[]>(
     [],
-    "watched"
+    'watched',
   );
-  // const [watched, setWatched] = useState<IWatchedMovie[]>([]);
 
   function handleSelectMovie(id: string) {
-    setSelectedId((selectedId) => (id === selectedId ? null : id));
+    setSelectedId(selectedId => (id === selectedId ? null : id));
   }
 
   function handleCloseMovie() {
     setSelectedId(null);
-    document.title = "🍿usePopCorn";
+    document.title = '🍿usePopCorn';
   }
 
   function handleAddWatched(movie: IWatchedMovie) {
-    setWatched((watched) => watched && [...watched, movie]);
+    setWatched(watched => watched && [...watched, movie]);
   }
 
   function handleDeleteWatchedMovie(id: string) {
-    setWatched((watched) => watched?.filter((movie) => movie.imdbId !== id));
+    setWatched(watched => watched?.filter(movie => movie.imdbId !== id));
   }
 
   return (

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Star from "./Star";
-import "./stars.css";
+import { useState } from 'react';
+import Star from './Star';
+import './stars.css';
 
 interface IProps {
   maxRating?: number;
@@ -12,7 +12,7 @@ interface IProps {
 }
 function StarRating({
   maxRating = 5,
-  color = "#fcc419",
+  color = '#fcc419',
   size = 32,
   messages = [],
   defaultRating = 3,
@@ -26,8 +26,8 @@ function StarRating({
     onSetRating && onSetRating(rating);
   }
   return (
-    <div className="main-container">
-      <div className="stars-container">
+    <div className='main-container'>
+      <div className='stars-container'>
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
             key={i}
@@ -42,11 +42,11 @@ function StarRating({
       </div>
       <p
         style={{ color, fontSize: `${size / 1.5}px` }}
-        className="stars-text-style"
+        className='stars-text-style'
       >
         {messages.length === maxRating
           ? messages[tempRating ? tempRating - 1 : rating - 1]
-          : tempRating || rating || ""}
+          : tempRating || rating || ''}
       </p>
     </div>
   );

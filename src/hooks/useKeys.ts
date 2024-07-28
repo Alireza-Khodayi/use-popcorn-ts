@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export function useKeys(key: string, action: () => void) {
   useEffect(
@@ -6,11 +6,11 @@ export function useKeys(key: string, action: () => void) {
       function callback(e: KeyboardEvent) {
         if (e.code.toLowerCase() === key.toLowerCase()) action();
       }
-      document.addEventListener("keydown", callback);
+      document.addEventListener('keydown', callback);
       return function () {
-        document.removeEventListener("keydown", callback);
+        document.removeEventListener('keydown', callback);
       };
     },
-    [action, key]
+    [action, key],
   );
 }

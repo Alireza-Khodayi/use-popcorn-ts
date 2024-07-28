@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { DetailedMovie } from "../../../@Types/DetailedMovie";
-import { StarRating } from "../../UI/StarRating";
-import Loading from "../../UI/Loading/Loading";
-import { IWatchedMovie } from "../../../@Types/WatchedMovie";
-import { useKeys } from "../../../hooks/useKeys";
+import { useEffect, useState } from 'react';
+import { DetailedMovie } from '../../../@Types/DetailedMovie';
+import { StarRating } from '../../UI/StarRating';
+import Loading from '../../UI/Loading/Loading';
+import { IWatchedMovie } from '../../../@Types/WatchedMovie';
+import { useKeys } from '../../../hooks/useKeys';
 
 interface IProps {
   selectedId: string;
@@ -11,7 +11,7 @@ interface IProps {
   onAddWatched: (movie: IWatchedMovie) => void;
   watched?: IWatchedMovie[];
 }
-const APIKEY = "66e646b8";
+const APIKEY = '66e646b8';
 
 function MovieDetails({
   selectedId,
@@ -23,9 +23,9 @@ function MovieDetails({
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState<number>();
 
-  const isWatched = watched?.map((movie) => movie.imdbId).includes(selectedId);
+  const isWatched = watched?.map(movie => movie.imdbId).includes(selectedId);
   const watchedUserRating = watched?.find(
-    (movie) => movie.imdbId === selectedId
+    movie => movie.imdbId === selectedId,
   )?.userRating;
 
   const {
@@ -48,20 +48,20 @@ function MovieDetails({
       year,
       poster,
       imdbRating: Number(imdbRating),
-      runtime: Number(runtime.split(" ")[0]),
+      runtime: Number(runtime.split(' ')[0]),
       userRating,
     };
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
-  useKeys("Escape", onCloseMovie);
+  useKeys('Escape', onCloseMovie);
 
   useEffect(
     function () {
       async function getMovieDetails() {
         setIsLoading(true);
         const response = await fetch(
-          `http://www.omdbapi.com/?apikey=${APIKEY}&i=${selectedId}`
+          `http://www.omdbapi.com/?apikey=${APIKEY}&i=${selectedId}`,
         );
         const data = await response.json();
         setMovie(data);
@@ -69,7 +69,7 @@ function MovieDetails({
       }
       getMovieDetails();
     },
-    [selectedId]
+    [selectedId],
   );
 
   useEffect(
@@ -77,25 +77,25 @@ function MovieDetails({
       if (!title) return;
       document.title = `🍿| ${title}`;
       return function () {
-        document.title = "usePopCorn🍿";
+        document.title = 'usePopCorn🍿';
       };
     },
 
-    [title]
+    [title],
   );
 
   return (
-    <div className="details" key={selectedId}>
+    <div className='details' key={selectedId}>
       {isLoading ? (
         <Loading />
       ) : (
         <>
           <header>
-            <button className="btn-back" onClick={onCloseMovie}>
+            <button className='btn-back' onClick={onCloseMovie}>
               &larr;
             </button>
             <img src={poster} alt={`Poster of ${title}`} />
-            <div className="details-overview">
+            <div className='details-overview'>
               <h2>{title}</h2>
               <p>
                 {released} &bull; {runtime}
@@ -108,24 +108,24 @@ function MovieDetails({
             </div>
           </header>
           <section>
-            <div className="rating">
+            <div className='rating'>
               {!isWatched ? (
                 <>
                   <StarRating
                     defaultRating={0}
-                    color="#28bd52"
+                    color='#28bd52'
                     maxRating={10}
                     size={24}
                     onSetRating={setUserRating}
                   />
                   {userRating && userRating > 0 && (
-                    <button className="btn-add" onClick={handleAdd}>
+                    <button className='btn-add' onClick={handleAdd}>
                       + Add to list
                     </button>
                   )}
                 </>
               ) : (
-                <p style={{ textAlign: "center" }}>
+                <p style={{ textAlign: 'center' }}>
                   You rated with movie {watchedUserRating}⭐
                 </p>
               )}
