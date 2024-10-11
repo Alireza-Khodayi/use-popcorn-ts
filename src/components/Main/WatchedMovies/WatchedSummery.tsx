@@ -1,8 +1,10 @@
 import { IWatchedMovie } from "../../../@Types/WatchedMovie";
 import { average } from "../../../utils/average";
+
 interface IProps {
   watched: IWatchedMovie[];
 }
+
 function WatchedSummery({ watched }: IProps) {
   const avgImdbRating = average(
     watched.map((movie) => movie.imdbRating) as number[]

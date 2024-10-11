@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Main } from './components/Main';
 import { Logo, Navbar, NumberOfResults, SearchBar } from './components/Navbar';
 import { MoviesList } from './components/Main/MoviesList';
-import { Box } from './components/UI/Box';
+import { Box } from './components/UI/Box/Box';
 import {
   WatchedMoviesList,
   WatchedSummery,
