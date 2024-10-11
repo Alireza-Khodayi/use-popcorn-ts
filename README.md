@@ -1,30 +1,58 @@
-# React + TypeScript + Vite
+# 🍿 usePopcorn
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun app to work with component composition, effects and custom hooks in
+ReactJS + Typescript.
 
-Currently, two official plugins are available:
+## 🖼️ Screenshots
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![App Screenshot](https://raw.githubusercontent.com/Alireza-Khodayi/use-popcorn-ts/refs/heads/main/public/Screenshot%202024-10-11%20083800.png)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- useLocalStorageState Custom hook to add movies in your watch list even refresh
+  browser or close project.
+- useKeys custom hook to use keydown keyboard events in cleaner , reusable and
+  easier approach.
+- Fetching data and handling loading or error state with useMovies custom hook.
+- Search movies immediately after user starts to type and prevent request to api
+  untill user stops typing with help of Abort Controller Api.
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Installation and Run
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+To Install/run usePopcorn project on your local machine you can do these steps:
+
+- Step 1: Clone repository
+
+```bash
+  git clone https://github.com/Alireza-Khodayi/use-popcorn-ts
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Step 2: Move to project directory
+
+```bash
+cd use-popcorn-ts
+```
+
+- Step 3: Install dependencies
+
+```bash
+npm install
+```
+
+- Step 4: Run the project
+
+```bash
+npm run dev
+```
+
+## 🧩 Tech Stack
+
+ReactJS, TypeScript
+
+## 💡 Feedback
+
+If you have any feedback, please reach out me at alirezakhodayi97@gmail.com
+
+## ❤️ Support
+
+Please give a star to this repository if you enjoyed.
